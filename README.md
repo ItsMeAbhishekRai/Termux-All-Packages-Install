@@ -1,4 +1,4 @@
 # Termux-All-Packages-Install
-all packages install on termux in one click
+All Packages Install On Termux In One Click
 ./install.sh
-install All Packages
+Install All Packages
