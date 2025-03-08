@@ -1,82 +1,76 @@
-#!/data/data/com.termux/files/usr/bash
-echo $red 
- echo ""----------------------------------------------------------------------------- ""
-echo " This Script is Made by Abhishek Rai "
-echo "---------------------------------------------------------------------------------"
+#!/data/data/com.termux/files/usr/bin/bash
 
-echo
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
 
-echo  "#####################################"
-echo   "  https://www.instagram.com/ItsMeAbhishekRai "               
- echo   " https://github.com/ItsMeAbhishekRai/ "                                                                    
-echo   "####################################"
+# Header
+echo -e "${RED}--------------------------------------------------"
+echo "  Ultimate Termux Tool Installer Script "
+echo "--------------------------------------------------${NC}"
 
-echo
-echo
-echo
-echo
+# Social Links
+echo -e "\nFollow Me:\n"
+echo "Instagram:  https://www.instagram.com/ItsMeAbhishekRai"
+echo "GitHub:     https://github.com/ItsMeAbhishekRai"
+echo "YouTube:    https://www.youtube.com/@ItsMeAbhishekRai"
+echo "Pinterest:  https://in.pinterest.com/ItsMeAbhishekRai/"
+echo -e "--------------------------------------------------\n"
 
-echo "."
+# Update & Upgrade
+echo "[+] Updating package list..."
+apt update -y && apt upgrade -y
 
-apt update -y                      #update in progress
-apt install python -y           #installation......
-apt install python2 -y
-apt install ruby -y 
-apt install git -y
+# Basic Tools
+echo "[+] Installing Basic Utilities..."
+apt install -y python python2 ruby git php perl bash clang jq \
+macchanger nano curl tar zip unzip tor wget wcalc openssl bmon \
+openssl-dev termux-tools coreutils findutils busybox net-tools \
+dnsutils resolv-conf termux-api openssh grep sed awk tmux htop \
+tree figlet toilet cowsay cmatrix neofetch lolcat screen
 
-echo  "#####################################"
-echo   "  SUBSCRIBE  MY YOUTUBE CHANEL     "               
- echo   " https://www.youtube.com/@ItsMeAbhishekRai "                                                                    
-echo   "####################################"
+# Networking & Scanning
+echo "[+] Installing Networking & Scanning Tools..."
+apt install -y nmap netcat tcpdump wireguard-tools mtr httrack \
+proxychains whois dnsutils iproute2 ettercap ngrep
 
-apt install php -y 
-apt install perl -y
-apt install nmap -y
+# Ethical Hacking & Exploitation
+echo "[+] Installing Ethical Hacking & Exploitation Tools..."
+apt install -y hydra metasploit sqlmap nikto aircrack-ng hashcat \
+routersploit tsu beef-xss
 
-echo  "#####################################"
-echo   "  Follow Me On Instagram  "             
- echo   " https://www.instagram.com/ItsMeAbhishekRai "                                                                    
-echo   "####################################"
+# Web & OSINT Tools
+echo "[+] Installing Web & OSINT Tools..."
+apt install -y whatweb recon-ng subfinder theHarvester \
+waybackurls amass wpscan dmitry dnsenum
 
-apt install bash -y
-apt install clang -y
-apt install jq -y
-apt install macchanger -y
+# Password Cracking
+echo "[+] Installing Password Cracking Tools..."
+apt install -y john hashid wordlists crunch cupp
 
-echo  "#####################################"
-echo   "  SUBSCRIBE To My YOUTUBE CHANEL "               
- echo   " https://www.youtube.com/@ItsMeAbhishekRai "                                                                    
-echo   "####################################"
+# Reverse Engineering & Malware Analysis
+echo "[+] Installing Reverse Engineering & Malware Analysis Tools..."
+apt install -y radare2 apktool dex2jar jadx ghidra
 
-apt install nano -y
-apt install curl -y
-apt install tar -y
-apt install zip -y
+# Programming & Development
+echo "[+] Installing Development Tools..."
+apt install -y nodejs golang rust lua vim neovim termux-api
 
-echo  "#####################################"
-echo   " MY PINTREST PROFILE "               
- echo   " https://in.pinterest.com/ItsMeAbhishekRai/ "                                                                    
-echo   "####################################"
+# Anonymity & Privacy Tools
+echo "[+] Installing Anonymity & Privacy Tools..."
+apt install -y tor torsocks privoxy proxychains
 
-apt install unzip -y
-apt install tor -y
-apt install wget -y
+# Wireless Security
+echo "[+] Installing Wireless Security Tools..."
+apt install -y reaver bully tshark kismet hcxdumptool hcxtools
 
-echo  "#####################################"
-echo   "  https://www.YouTube.com/@ItsMeAbhishekRai      "               
- echo   " Subscribe Now "                                                                    
-echo   "####################################"
+# Extra Utilities
+echo "[+] Installing Extra Terminal Utilities..."
+apt install -y yt-dlp ffmpeg exiftool imagemagick ranger \
+aria2 fzf bat xclip
 
-apt install wcalc -y 
-apt install openssl
-apt install bmon -y
-
-echo  "#####################################"
-echo   "  Follow Me On GitHub   "               
- echo   " https://github.com/ItsMeAbhishekRai/ "                                                                    
-echo   "####################################"
-
-echo " If You Connected To Internet Then  "
-echo " YOUR PACKAGES IS INSTALLED SUCCESSFULLY "
+# Success Message
+echo -e "\n✅ ${GREEN}All tools installed successfully!${NC} ✅\n"
 
 exit
