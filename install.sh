@@ -1,76 +1,80 @@
-#!/data/data/com.termux/files/usr/bin/bash
+#!/bin/bash
 
 # Colors
 RED='\033[0;31m'
 GREEN='\033[0;32m'
-NC='\033[0m' # No Color
+BLUE='\033[0;34m'
+CYAN='\033[0;36m'
+YELLOW='\033[0;33m'
+MAGENTA='\033[0;35m'
+WHITE='\033[1;37m'
+NC='\033[0m'
 
-# Header
+# Stylish Header
 echo -e "${RED}--------------------------------------------------"
-echo "  Ultimate Termux Tool Installer Script "
-echo "--------------------------------------------------${NC}"
+echo -e "  🚀 ${GREEN}Ultimate Termux & Linux Tool Installer 🚀"
+echo -e "${RED}--------------------------------------------------${NC}\n"
 
-# Social Links
-echo -e "\nFollow Me:\n"
-echo "Instagram:  https://www.instagram.com/ItsMeAbhishekRai"
-echo "GitHub:     https://github.com/ItsMeAbhishekRai"
-echo "YouTube:    https://www.youtube.com/@ItsMeAbhishekRai"
-echo "Pinterest:  https://in.pinterest.com/ItsMeAbhishekRai/"
-echo -e "--------------------------------------------------\n"
+# Social Links with Colors & Styling
+echo -e "${CYAN}📢 Follow Me: ${NC}\n"
+echo -e "${MAGENTA}📷 Instagram:${NC}  ${YELLOW}https://www.instagram.com/ItsMeAbhishekRai${NC}"
+echo -e "${BLUE}💻 GitHub:${NC}     ${YELLOW}https://github.com/ItsMeAbhishekRai${NC}"
+echo -e "${RED}▶️ YouTube:${NC}    ${YELLOW}https://www.youtube.com/@ItsMeAbhishekRai${NC}"
+echo -e "${WHITE}📌 Pinterest:${NC}  ${YELLOW}https://in.pinterest.com/ItsMeAbhishekRai/${NC}"
+echo -e "${RED}--------------------------------------------------${NC}\n"
 
-# Update & Upgrade
-echo "[+] Updating package list..."
-apt update -y && apt upgrade -y
+# Update Package List
+echo -e "${GREEN}[+] Updating package list...${NC}"
+if command -v apt &>/dev/null; then
+    apt update -y && apt upgrade -y
+elif command -v pacman &>/dev/null; then
+    pacman -Syu --noconfirm
+elif command -v dnf &>/dev/null; then
+    dnf update -y
+else
+    echo -e "${RED}[ERROR] Package manager not found!${NC}"
+    exit 1
+fi
 
-# Basic Tools
-echo "[+] Installing Basic Utilities..."
-apt install -y python python2 ruby git php perl bash clang jq \
-macchanger nano curl tar zip unzip tor wget wcalc openssl bmon \
-openssl-dev termux-tools coreutils findutils busybox net-tools \
-dnsutils resolv-conf termux-api openssh grep sed awk tmux htop \
-tree figlet toilet cowsay cmatrix neofetch lolcat screen
+# Install Basic Utilities
+echo -e "${GREEN}[+] Installing Basic Utilities...${NC}"
+apt install -y python python2 python3 ruby git php perl bash curl tar zip unzip wget nano vim neofetch figlet toilet cowsay lolcat
 
-# Networking & Scanning
-echo "[+] Installing Networking & Scanning Tools..."
-apt install -y nmap netcat tcpdump wireguard-tools mtr httrack \
-proxychains whois dnsutils iproute2 ettercap ngrep
+# Install Networking & Scanning Tools
+echo -e "${GREEN}[+] Installing Networking & Scanning Tools...${NC}"
+apt install -y nmap netcat-openbsd macchanger proxychains whois dnsutils 
 
-# Ethical Hacking & Exploitation
-echo "[+] Installing Ethical Hacking & Exploitation Tools..."
-apt install -y hydra metasploit sqlmap nikto aircrack-ng hashcat \
-routersploit tsu beef-xss
+# Install Ethical Hacking & Exploitation Tools
+echo -e "${GREEN}[+] Installing Ethical Hacking & Exploitation Tools...${NC}"
+apt install -y metasploit-framework routersploit sqlmap hydra john aircrack-ng
 
-# Web & OSINT Tools
-echo "[+] Installing Web & OSINT Tools..."
-apt install -y whatweb recon-ng subfinder theHarvester \
-waybackurls amass wpscan dmitry dnsenum
+# Install Web & OSINT Tools
+echo -e "${GREEN}[+] Installing Web & OSINT Tools...${NC}"
+apt install -y theHarvester wpscan waybackurls subfinder whatweb 
 
-# Password Cracking
-echo "[+] Installing Password Cracking Tools..."
-apt install -y john hashid wordlists crunch cupp
+# Install Password Cracking Tools
+echo -e "${GREEN}[+] Installing Password Cracking Tools...${NC}"
+apt install -y hashcat cupp crunch
 
-# Reverse Engineering & Malware Analysis
-echo "[+] Installing Reverse Engineering & Malware Analysis Tools..."
-apt install -y radare2 apktool dex2jar jadx ghidra
+# Install Reverse Engineering & Malware Analysis Tools
+echo -e "${GREEN}[+] Installing Reverse Engineering & Malware Analysis Tools...${NC}"
+apt install -y radare2 ghidra 
 
-# Programming & Development
-echo "[+] Installing Development Tools..."
-apt install -y nodejs golang rust lua vim neovim termux-api
+# Install Development Tools
+echo -e "${GREEN}[+] Installing Development Tools...${NC}"
+apt install -y clang cmake make gcc g++ lua nodejs termux-api
 
-# Anonymity & Privacy Tools
-echo "[+] Installing Anonymity & Privacy Tools..."
-apt install -y tor torsocks privoxy proxychains
+# Install Anonymity & Privacy Tools
+echo -e "${GREEN}[+] Installing Anonymity & Privacy Tools...${NC}"
+apt install -y tor torsocks proxychains privoxy
 
-# Wireless Security
-echo "[+] Installing Wireless Security Tools..."
-apt install -y reaver bully tshark kismet hcxdumptool hcxtools
+# Install Wireless Security Tools
+echo -e "${GREEN}[+] Installing Wireless Security Tools...${NC}"
+apt install -y hcxtools reaver pixiewps 
 
-# Extra Utilities
-echo "[+] Installing Extra Terminal Utilities..."
-apt install -y yt-dlp ffmpeg exiftool imagemagick ranger \
-aria2 fzf bat xclip
+# Install Extra Terminal Utilities
+echo -e "${GREEN}[+] Installing Extra Terminal Utilities...${NC}"
+apt install -y aria2 htop exiftool tmux 
 
-# Success Message
-echo -e "\n✅ ${GREEN}All tools installed successfully!${NC} ✅\n"
-
-exit
+# Installation Complete
+echo -e "${GREEN}✅ All tools installed successfully! 🚀${NC}"
