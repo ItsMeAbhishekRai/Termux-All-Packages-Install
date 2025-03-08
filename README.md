@@ -40,6 +40,42 @@ sudo bash install.sh
 
 ---
 
+## ❗ Common Issues & Fixes
+
+### 🔴 **Problem:** `$'\r': command not found` & `syntax error near unexpected token`
+**Issue:** This error occurs when the script is in Windows (CRLF) format and executed in Linux or Termux.
+
+### ✅ **Solution: Convert Script from CRLF to LF**
+Your script contains Windows-style line endings (CRLF). Convert it to Linux-compatible format (LF) by following these steps:
+
+#### **1️⃣ Convert the Script**
+```bash
+dos2unix install.sh
+```
+If `dos2unix` is not installed, install it:
+
+**For Termux:**
+```bash
+pkg install dos2unix
+```
+
+**For Linux:**
+```bash
+sudo apt install dos2unix
+```
+
+#### **2️⃣ Check & Remove CRLF Manually (If `dos2unix` Doesn't Work)**
+```bash
+sed -i 's/\r$//' install.sh
+```
+
+#### **3️⃣ Execute the Script Again**
+```bash
+bash install.sh
+```
+
+---
+
 ## 📜 Tools Installed
 ### 🔹 **Basic Utilities**
 ✔ Python, Python2, Python3, Git, Curl, Tar, Zip, Unzip, Wget, Nano, Vim, Figlet, Toilet, Cowsay, Lolcat, Neofetch
